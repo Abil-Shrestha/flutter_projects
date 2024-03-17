@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rpg_dart/screens/home/character_card.dart';
+import 'package:rpg_dart/shared/styled_button.dart';
 import 'package:rpg_dart/shared/styled_text.dart';
 
 class Home extends StatefulWidget {
@@ -9,6 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List character = ['mario', 'luigi', 'peach', 'toad', 'ninja', 'jonny'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,14 +22,18 @@ class _HomeState extends State<Home> {
       body: Container(
         padding: const EdgeInsets.all(16),
         child: Column(children: [
-          const StyledText('This is the Text'),
-          const StyledHeading('this is heading'),
-          const StyledTitle('this is the Title '),
-          FilledButton(
+          Expanded(
+            child: ListView.builder(
+                itemCount: character.length,
+                itemBuilder: (_, index) {
+                  return CharacterCard(character[index]);
+                }),
+          ),
+          Styledbutton(
             onPressed: () {
               // navigate to the create screen
             },
-            child: const Text('Create New'),
+            child: const StyledHeading('Create New'),
           ),
         ]),
       ),

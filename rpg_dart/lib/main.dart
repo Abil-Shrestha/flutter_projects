@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rpg_dart/theme.dart';
-import 'package:rpg_dart/screens/home.dart';
+import 'package:rpg_dart/screens/home/home.dart';
 
 void main() {
   runApp(MaterialApp(
